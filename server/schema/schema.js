@@ -8,14 +8,14 @@ const {
      } = graphql;
 
 const books = [
-    {name:'ddd', id:1},
-    {name:'dee', id:2},
-    {name:'mee', id:3},
+    {name:'ddd', id:1, authorId: "1"},
+    {name:'dee', id:2, authorId: "2"},
+    {name:'mee', id:3, authorId: "1"},
 ]
 const authors = [
-    {name:'ddd', id:1, age: 33},
-    {name:'dee', id:2, age: 33},
-    {name:'mee', id:3, age: 33},
+    {name:'ddd', id:1, age: 33, authorId: "1"},
+    {name:'dee', id:2, age: 33, authorId: "2"},
+    {name:'mee', id:3, age: 33, authorId: "3"},
 ]
 
 const BookType =  new GraphQLObjectType({
@@ -23,7 +23,16 @@ const BookType =  new GraphQLObjectType({
     fields: () => ({
         id: {type:GraphQLString},
         name: {type: GraphQLString},
-        genre: {type: GraphQLString}
+        genre: {type: GraphQLString},
+        author: {
+            type: AuthorType,
+            resolve(parent, args){
+                // get nested data
+                return authors.filter(author => 
+                        author.id == parent.authorId)[0];
+
+            }
+        }
     })
 });
 
