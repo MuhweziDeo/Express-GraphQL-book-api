@@ -1,0 +1,17 @@
+{
+  "name": "Express-GraphQL-book-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/MuhweziDeo/Express-GraphQL-book-api.git",
+  "author": "muhwezi deo <aggrey256@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-graphql": "^0.8.0",
+    "graphql": "^14.4.1",
+    "nodemon": "^1.19.1"
+  },
+  "scripts": {
+    "start": "nodemon app.js"
+  }
+}
