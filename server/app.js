@@ -1,7 +1,13 @@
 const express = require('express');
 const app = express();
 const graphqlHTTP = require('express-graphql');
+const mongoose = require('mongoose');
 const schema = require('./schema/schema');
+
+mongoose.connect('mongodb://localhost:27017/graphql');
+mongoose.connection.once('open', ()=> {
+  console.log('connected to mongo db')
+})
 
 app.use('/graphql', graphqlHTTP({
   schema,
