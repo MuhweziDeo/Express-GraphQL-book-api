@@ -5,6 +5,7 @@ import BookList from './componets/Book';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 
+// apollo client
 const client = new ApolloClient({
 uri: 'http://localhost:4000/graphql'
 });
